@@ -40,7 +40,16 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This project translates a small C-style language to MIPS assembly code. The compiler is build using compiler construction tools such as Jlex, Java CUP, and Spim.
+<p>The Mini-compiler translates a small C-style language to MIPS assembly code. The compiler is built using compiler construction tools such as Jlex, Java CUP, and Spim. The aim of this project is to write a full compiler comprising the scanner and parser as the front-end and error checking, optimization, and assembly code generation as the backend.
+</p>
+
+<p> The language that this compiler translatets is a C-style statically typed language that includes basic features such as structs and function declarations. The lexical analyzer that tokenizes the input is generated through JLex, a Java lexical analyzer generator. The LALR parser is generated through JAVA CUP. The parse tree is generated, where name analysis and type checking are performed separately to produce the abstract syntax tree (AST). From the AST, the program is ultimately translated into MIPS assembly code.
+</p>
+
+<p>
+The theoretical underpinning of this project is based on the text, <a href="https://www.oreilly.com/library/view/engineering-a-compiler/9780080916613/"><i>Engineering a Compiler</i></a> by Cooper and Torczon.
+</p>
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
