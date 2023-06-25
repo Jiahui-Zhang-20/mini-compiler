@@ -1,0 +1,348 @@
+// test global variables
+int a;
+bool b;
+
+int sum(int a, int b, int c) {
+	return a + b + c;
+}
+
+bool testWhile() {
+
+	int x;
+	int y;
+
+	x = 10;
+	y = x - 10;
+
+	cout << "testing while... \n";
+
+	while(x > 0) {
+		x--;
+		y++;
+		cout << "x : ";
+		cout << x;
+		cout << "\n";
+	}
+
+	return (x==0 && y==10);
+}
+
+bool testIf() {
+
+	bool a;
+	bool b;
+	bool res;
+
+	res = a = true;
+	res = true;
+	b = !a;
+
+	if (a && b && a) {
+		cout << "execute if-body";
+		cout << "bad!";
+		res = false;
+	}
+	if(a || b || b || b || b) {
+		bool a;
+		a = false;
+		cout << "execute if-body";
+		if(a) {
+			cout << "execute if body \n";
+			cout << "bad!";
+			res = false;
+		} else {
+			cout << "execute else body \n";
+		}
+	}
+	if(b) {
+		cout << "execute if body \n";
+		cout << "bad!";
+		res = false;
+	} else {
+		cout << "execute else body \n";
+	}
+
+	if(a) {
+		bool b;
+		b = true;
+		cout << "execute if body \n";
+		if(b) {
+			cout << "execute if body \n";
+		} else {
+			cout << "execute else body \n";
+			cout << "bad!";
+			res = false;
+		}
+	} else {
+		cout << "execute else body \n";
+		cout << "bad!";
+		res = false;
+	}
+
+	return res;
+}
+
+
+int boolTest() {
+	cout << "while test result: ";
+	cout << testWhile();
+	cout << "\n";
+	cout << "if-then-else test result: ";
+	testIf();
+	cout << "\n";
+	cout << "bool test... \n";
+	cout << "testing ands...\n";
+	cout << true && false;
+	cout << "\n";
+	cout << false && true;
+	cout << "\n";
+	cout << false && false;
+	cout << "\n";
+	cout << true && true && true;
+	cout << "\n";
+
+	// short circuiting
+	cout << false && (1/0==1);
+	cout << "\n";
+
+	cout << "testing ors... \n";
+	cout << false || false;
+	cout << "\n";
+	cout << false || true;
+	cout << "\n";
+	cout << true || true;	
+	cout << "\n";
+	cout << true || false;
+	cout << "\n";
+
+	// short circuiting
+	cout << true || 1/0==1;
+	cout << "\n";
+
+}
+
+int main() {
+
+	int x;
+	bool y;
+	int z;
+
+	int u;
+	int v;
+	int w;
+
+	bool i;
+	bool j;
+	bool k;
+
+	bool whileRes;
+	bool ifRes;
+
+	cout << "while test...\n";
+	whileRes = testWhile();
+	cout << "while result: ";
+	cout << whileRes;	
+	cout << "\n";
+
+	cout << "if-then-else test...\n";
+	ifRes = testIf();
+	cout << "if-then-else result: ";
+	cout << ifRes;
+	cout << "\n";
+
+	boolTest();
+
+	cout << -1 == -1; // 1
+	cout << -1 == 1; // 0
+	cout << true == false; // 0
+	cout << false == false; // 1
+	cout << "Jack" == "jack"; // 0
+	cout << "Jack" == "Jack"; // 1
+
+	cout << -1 != -1; // 0
+	cout << -1 != 1; // 1
+	cout << true != false; // 1
+	cout << false != false; // 0
+	cout << "Jack" != "jack"; // 1
+	cout << "Jack" != "Jack"; // 0
+
+	cout << -10 < 0;
+	cout << -11 > 7;
+	cout << -78 <= -78;
+	cout << -90 >= 1;
+
+	cout << "the sum of 1, 2, 3 is ";
+	cout << sum(1, 2, 3);
+	cout << "\n";
+
+	sum(0, 0, 0);
+
+	u = 1;
+	v = 100;
+	w = 999;
+
+	u = u + v - w;
+	cout << "u = ";
+	cout << u; // -898
+	cout << "\n";
+
+	u = (u-v) * w;
+	cout << "u = ";
+	cout << u; // -98901
+	cout << "\n";
+
+	u = 7;
+	u = v / u;
+	cout << "u = ";
+	cout << u; // 10
+	cout << "\n";
+
+	// test printing
+	cout << "some number: ";
+	cout << 7;
+	cout << "\n";
+	cout << true;
+	cout << false;
+	cout<< "some strings: \n";
+	cout << "abc\n";
+	cout << "abg\n";
+	cout << "abc\n";
+
+	// test assignments
+
+	a = 9;
+	b = false;
+
+	cout << "a: ";
+	cout << a;
+	cout << "\n";
+	cout << "b: ";
+	cout << b;
+	cout << "\n";
+	x = 123;
+	y = true;
+	z = 321;	
+
+	cout << "x: ";
+	cout << x;
+	cout << "\n";
+	cout << "y: ";
+	cout << y;
+	cout << "\n";
+	cout << "z: ";
+	cout << z;
+	cout << "\n";
+
+	cout << "result of cout << i = j = k = b; \n";
+	cout << "where b is global\n";
+	cout << i = j = k = b;
+	cout << "and i, j, k: \n";
+	cout << i;
+	cout << " ";
+	cout << j;
+	cout << " ";
+	cout << k;
+	cout << "\n";
+
+	cout << "result of cout << u = v = w = x; \n";
+	cout << "where x is local\n";
+	cout << u = v = w = x;
+	cout << "and u, v, w: \n";
+	cout << u;
+	cout << " ";
+	cout << v;
+	cout << " ";
+	cout << w;
+	cout << "\n";
+
+	cout << "result of cout << u = v = w = a; \n";
+	cout << "where a is global\n";
+	cout << u = v = w = a;
+	cout << "and u, v, w: \n";
+	cout << u;
+	cout << " ";
+	cout << v;
+	cout << " ";
+	cout << w;
+	cout << "\n";
+
+	// int
+	cin >> x;
+	// bool
+	cin >> a;
+	// int
+	cin >> b;
+
+	cout << "\n----------\n";
+
+	cout << "x: ";
+	cout << x;
+	cout << "\n";
+	cout << "a: ";
+	cout << a;
+	cout << "\n";
+	cout << "b: ";
+	cout << b;
+	cout << "\n";
+
+	cin >> x;
+	cout << "x: ";
+	cout << x;
+	cout << "\n";
+	cout << "we increment...\n";
+	x++;
+	cout << "x: ";
+	cout << x;
+	cout << "\n";
+	cout << "we increment...\n";
+	x++;
+	cout << "x: ";
+	cout << x;
+	cout << "\n";
+	cout << "we increment...\n";
+	x++;
+	cout << "x: ";
+	cout << x;
+	cout << "\n";
+	cout << "we decrement...\n";
+	x--;
+	cout << "x: ";
+	cout << x;
+	cout << "\n";
+	cout << "we decrement...\n";
+	x--;
+	cout << "x: ";
+	cout << x;
+	cout << "\n";
+	cout << "we decrement...\n";
+	x--;
+	cout << "x: ";
+	cout << x;
+	cout << "\n";
+	cout << "we decrement...\n";
+	x--;
+	cout << "x: ";
+	cout << x;
+	cout << "\n";
+
+	cout << "----------\n";
+	cout << -x;
+	cout << "\n";
+	cout << -3;
+	cout << "\n";
+
+	cin >> y; // 0
+	cout << "----------\n";
+	cout << y; // 0
+	cout << "\n";
+	cout << !y; // 1
+	cout << "\n";
+	y = !y;
+	cout << y; // 1
+	cout << "\n";
+	y = !y;
+	cout << y; // 0
+	cout << "\n";
+}
+
+int c;

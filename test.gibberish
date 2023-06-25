@@ -1,0 +1,187 @@
+///////////////////////////////////////////////////////////////////////////////
+// Title:            Project 6
+// Main Class File:  P6.java
+// File:             test.gibberish
+// Semester:         CS 536 Spring 2023
+//
+// Author:           Jiahui (Jack) Zhang
+// Email:            jzhang2482@wisc.edu
+// CS Login:         jzhang2482@cs.wisc.edu
+// Lecturer's Name:  Loris D'Antoni
+//////////////////////////// 80 columns wide //////////////////////////////////
+
+// recursive function to compute the nth Fibonacci number
+int fib(int n) {
+
+	// invalid input
+	if (n < 0){
+		cout << "input must be non-negative";
+		return -1;
+	}
+
+	// base cases
+	if(n == 0 || n == 1) {
+		return n;
+
+	// recursive case
+	} else {
+		return fib(n-1) + fib(n-2);
+	}
+
+}
+
+// recursive function to compute factorial n!
+int fact(int n) {
+
+	// invalid input
+	if(n < 0) {
+		cout << "input must be non-negative";
+		return -1;
+	}
+
+	// base case
+	if (n == 0) {
+		return 1;
+
+	// recursive case
+	} else {
+		return fact(n-1) * n;
+	}
+
+}
+
+void recursionTests() {
+
+	int fibn;
+	int factn;
+
+	cout << "welcome to recursion tests!\n";
+	
+	fibn = factn = -1;
+
+	cout << "testing Fibonacci function... \n";
+	while(fibn < 0) {
+		cout << "please enter a non-negative Fibonacci index:\n";
+		cin >> fibn;
+		if(fibn < 0) {
+			cout << "the Fibonacci index entered is out of range.\n";
+		}
+	}
+
+	cout << "computing the Fibonacci number at index ";
+	cout << fibn;
+	cout << "... \n";
+	cout << "The result is ";
+	cout << fib(fibn);
+	cout << "\n";
+
+	cout << "testing factorial function... \n";
+	while(factn < 0) {
+		cout << "please enter a non-negative factorial index:\n";
+		cin >> factn;
+		if(factn < 0) {
+			cout << "the factorial index entered is out of range.\n";
+		}
+	}
+
+	cout << "computing the factorial of ";
+	cout << factn;
+	cout << "... \n";
+	cout << "The result is ";
+	cout << fact(factn);
+	cout << "\n";
+
+	cout << "exiting recursion tests...\n";
+
+}
+
+// Test 2:
+void parameterTests () {
+
+}
+
+// Test 3:
+void scopeTests() {
+
+}
+
+// Test 4:
+void arithmeticTests() {
+	int a;
+	int b;
+
+	a = 100;
+	b = 7;
+	cout << "the result is: ";
+	cout << 100 / 7;
+	cout << "\n";
+}
+
+// Test 5:
+void logicTests() {
+
+}
+
+// Test 6:
+void stringTests() {
+
+}
+int main () {
+
+	int code;
+
+	while(true) {
+		cout << "==================================================\n";
+		cout << "Please enter one of the following codes:\n";
+		cout << "0. Exit testing\n";
+		cout << "1. Recursions\n";
+		cout << "2. Parameters\n";
+		cout << "3. Scopes\n";
+		cout << "4. Arithmetics\n";
+		cout << "5. Logic\n";
+		cout << "6. Strings\n";
+		cout << "==================================================\n";
+
+		cout << "Enter the test code: \n";
+		cin >> code;
+
+		if(code == 0) {
+			cout << "Exit testing...\n";
+			return 0;
+		}
+
+		if(code == 1) {
+			cout << "Test 1: Recursions\n";
+			recursionTests();
+		}
+
+		if(code == 2) {
+			cout << "Test 2: Parameters\n";
+			parameterTests();
+		}
+
+		if(code == 3) {
+			cout << "Test 2: Scopes\n";
+			scopeTests();
+		}
+
+		if(code == 4) {
+			cout << "Test 4:Arithmetics\n";
+			arithmeticTests();
+		}
+
+		if(code == 5){
+			cout << "Test 5: Logic\n";
+			logicTests();
+		}
+
+		if(code==6){
+			cout << "Test 6: Strings\n";
+			stringTests();
+		}
+
+		if(code <= -1 || code > 6) {
+			cout << "invalid code\n";
+		}
+	}
+}
