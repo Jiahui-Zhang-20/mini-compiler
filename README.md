@@ -30,7 +30,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/Jiahui-Zhang-20/mini-compiler">
-    <img src="img/turingMachine.jpeg" width="600" height="300">
+    <img src="https://en.wikipedia.org/wiki/Turing_machine#/media/File:Turing_Machine_Model_Davey_2012.jpg" width="600" height="300">
   </a>
 
   <a><h1 align="center">Mini-compiler</h1></a>
